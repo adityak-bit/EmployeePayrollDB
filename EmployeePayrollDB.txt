@@ -1,0 +1,44 @@
+ MySQL  JS > \connect root@localhost:3306
+Creating a session to 'root@localhost:3306'
+Fetching schema names for autocompletion... Press ^C to stop.
+Your MySQL connection id is 52
+Server version: 8.0.22 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  JS > \sql
+Switching to SQL mode... Commands end with ;
+
+----UC1----
+
+ MySQL  localhost:3306 ssl  SQL > create database payroll_service1;
+Query OK, 1 row affected (0.3100 sec)
+
+ MySQL  localhost:3306 ssl  SQL > show databases;
++--------------------+
+| Database           |
++--------------------+
+| capgemini          |
+| information_schema |
+| mysql              |
+| payroll_service    |
+| payroll_service1   |
+| performance_schema |
+| sakila             |
+| sys                |
+| testdb             |
+| world              |
++--------------------+
+10 rows in set (0.2024 sec)
+
+ MySQL  localhost:3306 ssl  SQL > use payroll_service1;
+Default schema set to `payroll_service1`.
+Fetching table and column names from `payroll_service1` for auto-completion... Press ^C to stop.
+
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > select database();
++------------------+
+| database()       |
++------------------+
+| payroll_service1 |
++------------------+
+1 row in set (0.0004 sec)
+
+----UC2----
