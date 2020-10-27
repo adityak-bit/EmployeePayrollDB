@@ -173,3 +173,45 @@ Records: 0  Duplicates: 0  Warnings: 0
 | start_date   | date         | NO   |     | NULL    |                |
 +--------------+--------------+------+-----+---------+----------------+
 
+----UC9----
+
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > alter table employee_payroll rename column salary to basic_pay;
+Query OK, 0 rows affected (0.1336 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > alter table employee_payroll add deductions double not null after basic_pay;
+Query OK, 0 rows affected (3.1275 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > alter table employee_payroll add taxable_pay double not null after deductions;
+Query OK, 0 rows affected (1.7808 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > alter table employee_payroll add tax double not null after taxable_pay;
+Query OK, 0 rows affected (2.5363 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > alter table employee_payroll add net_pay double not null after tax;
+Query OK, 0 rows affected (1.5626 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > describe employee_payroll;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name         | varchar(150) | NO   |     | NULL    |                |
+| phone_number | varchar(250) | YES  |     | NULL    |                |
+| address      | varchar(250) | YES  |     | TBD     |                |
+| department   | varchar(250) | NO   |     | NULL    |                |
+| gender       | char(1)      | YES  |     | NULL    |                |
+| basic_pay    | double       | NO   |     | NULL    |                |
+| deductions   | double       | NO   |     | NULL    |                |
+| taxable_pay  | double       | NO   |     | NULL    |                |
+| tax          | double       | NO   |     | NULL    |                |
+| net_pay      | double       | NO   |     | NULL    |                |
+| start_date   | date         | NO   |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+12 rows in set (0.0453 sec)
+
+----UC10----
