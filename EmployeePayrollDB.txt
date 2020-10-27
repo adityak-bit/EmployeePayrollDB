@@ -132,3 +132,13 @@ Rows matched: 1  Changed: 1  Warnings: 0
 3 rows in set (0.0006 sec)
 
 ----UC7----
+
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > select sum(salary) from employee_payroll where gender = 'M' group by gender;
++-------------+
+| sum(salary) |
++-------------+
+|     3000000 |
++-------------+
+1 row in set (0.0548 sec)
+
+----UC8----
