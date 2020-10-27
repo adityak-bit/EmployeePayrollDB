@@ -142,3 +142,34 @@ Rows matched: 1  Changed: 1  Warnings: 0
 1 row in set (0.0548 sec)
 
 ----UC8----
+
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > alter table employee_payroll add phone_number varchar(250) after name;
+Query OK, 0 rows affected (3.0844 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > alter table employee_payroll add address varchar(250) after phone_number;
+Query OK, 0 rows affected (1.5604 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > alter table employee_payroll add department varchar(250) not null after address;
+Query OK, 0 rows affected (3.6066 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > alter table employee_payroll alter address set default 'TBD';
+Query OK, 0 rows affected (0.2206 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > describe employee_payroll;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name         | varchar(150) | NO   |     | NULL    |                |
+| phone_number | varchar(250) | YES  |     | NULL    |                |
+| address      | varchar(250) | YES  |     | TBD     |                |
+| department   | varchar(250) | NO   |     | NULL    |                |
+| gender       | char(1)      | YES  |     | NULL    |                |
+| salary       | double       | NO   |     | NULL    |                |
+| start_date   | date         | NO   |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+
