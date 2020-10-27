@@ -75,3 +75,15 @@ Query OK, 3 rows affected (0.1251 sec)
 Records: 3  Duplicates: 0  Warnings: 0
 
 ----UC4----
+
+ MySQL  localhost:3306 ssl  payroll_service1  SQL > select * from employee_payroll;
++----+--------+---------+------------+
+| id | name   | salary  | start_date |
++----+--------+---------+------------+
+|  1 | Bill   | 1000000 | 2018-01-03 |
+|  2 | Mark   | 2000000 | 2019-11-13 |
+|  3 | Terisa | 3000000 | 2020-05-21 |
++----+--------+---------+------------+
+3 rows in set (0.0503 sec)
+
+----UC5----
